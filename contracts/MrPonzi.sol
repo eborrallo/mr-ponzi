@@ -6,7 +6,7 @@ contract MrPonzi {
     uint public prize;
     address payable public owner;
 
-    event newMrPonzy(address newMrPonzi, uint prize);
+    event NewMrPonzy(address newMrPonzi, uint prize);
 
     constructor() payable {
         owner = payable(msg.sender);
@@ -20,7 +20,7 @@ contract MrPonzi {
         mrPonzi = payable(msg.sender);
         prize = msg.value;
 
-        emit newMrPonzy(address(msg.sender), prize);
+        emit NewMrPonzy(address(msg.sender), prize);
     }
 
     function _mrPonzi() public view returns (address payable) {
