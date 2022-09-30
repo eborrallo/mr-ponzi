@@ -20,13 +20,13 @@ describe("MrPonzy", function () {
 
   describe("Play", function () {
     describe("Validations", function () {
-      it("Should revert with the right error if send few ether", async function () {
+      it("Should revert with the right error if send less tha 1.5 times the actual ether", async function () {
 
         const [owner, addr1] = await ethers.getSigners();
 
         const transaction = addr1.sendTransaction({
           to: contract.address,
-          value: ethers.utils.parseEther("0.1"),
+          value: ethers.utils.parseEther("1.4"),
         });
 
         await expect(transaction).to.be.revertedWith('Error , very little ether sent')
@@ -45,7 +45,7 @@ describe("MrPonzy", function () {
         });
 
         await expect(transaction)
-          .to.emit(contract, "NewMrPonzy")
+          .to.emit(contract, "NewMrPonzi")
           .withArgs(addr1.address, twoEthers);
       });
     });
@@ -62,7 +62,7 @@ describe("MrPonzy", function () {
 
 
         await expect(transaction)
-          .to.emit(contract, "NewMrPonzy")
+          .to.emit(contract, "NewMrPonzi")
           .withArgs(addr1.address, twoEthers);
 
         const threeEthers = ethers.utils.parseEther("3")
@@ -72,7 +72,7 @@ describe("MrPonzy", function () {
         });
 
         await expect(transaction)
-          .to.emit(contract, "NewMrPonzy")
+          .to.emit(contract, "NewMrPonzi")
           .withArgs(addr2.address, threeEthers);
 
         const afterFundsAddress2 = await addr1.getBalance()

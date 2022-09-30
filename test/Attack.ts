@@ -22,7 +22,7 @@ describe("Attacker", function () {
       let transaction = attacker.connect(addr1).run({ value: ethers.utils.parseEther("1") })
 
       await expect(transaction)
-        .to.emit(contract, "NewMrPonzy")
+        .to.emit(contract, "NewMrPonzi")
         .withArgs(attacker.address, ethers.utils.parseEther("1"));
       const twoEthers = ethers.utils.parseEther("2");
 
@@ -33,7 +33,7 @@ describe("Attacker", function () {
       });
 
       await expect(transaction)
-        .to.emit(contract, "NewMrPonzy")
+        .to.emit(contract, "NewMrPonzi")
         .withArgs(addr2.address, twoEthers);
     })
   })

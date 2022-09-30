@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run load-ts && react-scripts start",
+    "start": "npm run compile && npm run load-ts && react-scripts start",
     "build": "npm run load-ts && react-scripts build",
-    "test": "npm run load-ts && react-scripts test",
+    "test": "npx hardhat test",
     "eject": "npm run load-ts && react-scripts eject",
-    "load-ts": "tsc -p src/tsconfig.json"
+    "load-ts": "tsc -p src/tsconfig.json",
+    "bc": "npx hardhat node",
+    "compile" : "npx hardhat compile"
   },
   "author": "",
   "license": "ISC",
@@ -19,12 +21,17 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.62",
     "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "typescript": "^4.8.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3": "^1.8.0",
+    "@this/artifacts":"file:./artifacts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
