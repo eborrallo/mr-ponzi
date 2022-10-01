@@ -1,13 +1,38 @@
-# Sample Hardhat Project
+# Ponzi Game
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
 
-Try running some of the following tasks:
+
+This projects shows how implement a ponzi game  with Solidity smart Contracts and basic React UI
+
+
+## Commands:
+
+### Test Stamrt contracts
+```shell
+npm run test
+```
+
+### Up local blockchain 
+```shell
+npm run bc
+```
+
+### Up React UI
+```shell
+npm run start
+```
+
+### Deploy smart contract (Local)
+Remember to wake up the local blockchain node with the previous command
+```shell
+npm run hh:deploy
+```
+
+### Deploy on No local network
+You can configure the ````hardhat.config.ts```` to add you custom networks , [here](https://hardhat.org/hardhat-runner/docs/config)
+
+and run the command with your custom network 
 
 ```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
+npx hardhat run --network <your-network> scripts/deploy.js
 ```
